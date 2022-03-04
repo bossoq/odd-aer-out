@@ -172,11 +172,13 @@
       text15.x(15 * 15 + (txtArr[15 - 1] === 'แ' ? 15 : 0) + 28)
     }
 
-    layer.on('click', (e) => {
-      if (e.target.getAttr('text') === 'แ') {
-        e.target.setAttr('fill', '#ff0000')
-        won = true
-      }
+    ;['tap', 'click'].forEach((event) => {
+      layer.on(event, (e) => {
+        if (e.target.getAttr('text') === 'แ') {
+          e.target.setAttr('fill', '#ff0000')
+          won = true
+        }
+      })
     })
 
     eventResizeHandler()
