@@ -8,9 +8,9 @@
   import Modal from '$lib/components/Modal.svelte'
   import { darkTheme } from '$lib/store'
 
-  const url = 'https://simplesveltekit.vercel.app'
-  const title = 'Simple Sveltekit Template'
-  const description = 'Build a web app with Sveltekit, quickly.'
+  const url = 'https://odd-aer-out.bossoq.live'
+  const title = 'Odd "แ" Out'
+  const description = 'เเเเแเเเเเเเเเเเ หา แ ให้เจอ ถ้าเธอแน่จริง เเเเแเเเเเเเเเเเ'
 
   const menuItems = [
     { name: 'Made by bossoq', url: 'https://github.com/bossoq/simple-sveltekit-template' }
