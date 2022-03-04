@@ -19,6 +19,7 @@ export const darkTheme: Writable<boolean> = writable(storage.darkTheme ?? false)
 export const modalClass: Writable<string> = writable('hidden')
 export const modalViewed: Writable<boolean> = writable(false)
 export const score: Writable<number> = writable(0)
+export const timer: Writable<number> = writable(60)
 
 darkTheme.subscribe((value) => {
   storage.darkTheme = value
