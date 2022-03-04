@@ -10,6 +10,7 @@
   $: txtArr = randStringGenerator(16)
   $: played = false
   $: timeup = true
+  $: copied = false
 
   const handleRandom = () => {
     txtArr = randStringGenerator(16)
@@ -37,6 +38,13 @@
     $timer = timerValue
     timeup = true
     played = false
+  }
+  const handleCopy = () => {
+    navigator.clipboard.writeText(`Odd "แ" Out ${timerValue}s ${$score} คะแนน #OddแOut`)
+    copied = true
+    setTimeout(() => {
+      copied = false
+    }, 2000)
   }
 
   score.subscribe(() => {
@@ -66,15 +74,29 @@
       {#if !timeup}
         <Canvas {txtArr} />
       {:else}
-        <div class="flex flex-row gap-4 text-lg sm:text-2xl text-white dark:text-black">
-          <button
-            class="bg-teal-600 dark:bg-teal-300 rounded mt-4 p-3 font-medium"
-            on:click={handleRestart}>เริ่มเกมใหม่</button
-          >
-          <button
-            class="bg-red-600 dark:bg-red-300 rounded mt-4 p-3 font-medium"
-            on:click={handleReset}>ตั้งค่าใหม่</button
-          >
+        <div class="flex flex-col justify-center items-center">
+          <div class="flex flex-row gap-4 text-lg sm:text-2xl text-white dark:text-black">
+            <button
+              class="bg-teal-600 dark:bg-teal-300 rounded mt-4 p-3 font-medium"
+              on:click={handleRestart}>เริ่มเกมใหม่</button
+            >
+            <button
+              class="bg-red-600 dark:bg-red-300 rounded mt-4 p-3 font-medium"
+              on:click={handleReset}>ตั้งค่าใหม่</button
+            >
+          </div>
+          <div class="flex flex-row gap-4 text-lg sm:text-2xl text-white dark:text-black">
+            <button
+              class="bg-teal-600 dark:bg-teal-300 rounded mt-4 p-3 font-medium"
+              on:click={handleCopy}
+            >
+              {#if copied}
+                คัดลอกผลแล้ว
+              {:else}
+                คัดลอกผล
+              {/if}
+            </button>
+          </div>
         </div>
       {/if}
     </div>
