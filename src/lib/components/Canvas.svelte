@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import Konva from 'konva'
-  import { darkTheme } from '$lib/store'
+  import { darkTheme, score } from '$lib/store'
   export let txtArr: string[]
 
   let stage: Konva.Stage
@@ -132,6 +132,7 @@
       layer.on(event, (e) => {
         if (e.target.getAttr('text') === 'แ') {
           e.target.setAttr('fill', '#ff0000')
+          score.set($score + 1)
         }
       })
     })
