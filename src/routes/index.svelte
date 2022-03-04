@@ -101,8 +101,9 @@
           {/each}
         </div>
       </div>
+      <hr class="my-4 border-slate-300 dark:border-slate-600 w-full" />
       <button
-        class="text-white dark:text-black bg-teal-600 dark:bg-teal-300 rounded mt-4 p-3 font-medium"
+        class="text-white dark:text-black bg-teal-600 dark:bg-teal-300 rounded mt-1 p-3 font-medium"
         on:click={handleStart}>เริ่มเกม</button
       >
     </div>
