@@ -49,6 +49,8 @@
                       <li>Basic Functionality</li>
                       <li>Single Player</li>
                       <li>Auto generated string</li>
+                      <li>Timer Selection</li>
+                      <li>Share Result</li>
                     </ul>
                   </div>
                 </div>
