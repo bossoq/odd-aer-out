@@ -12,9 +12,7 @@
   const title = 'Odd "แ" Out'
   const description = 'เเเเแเเเเเเเเเเเ หา แ ให้เจอ ถ้าเธอแน่จริง เเเเแเเเเเเเเเเเ'
 
-  const menuItems = [
-    { name: 'Made by bossoq', url: 'https://github.com/bossoq/simple-sveltekit-template' }
-  ]
+  const menuItems = [{ name: 'Made by bossoq', url: 'https://github.com/bossoq/odd-aer-out' }]
   const imageUrl = `${url}/screenshot.jpg`
   const gtagId = null
   const themeIcons = ['🌞 Toggle Light mode', '🌙 Toggle Dark mode']
