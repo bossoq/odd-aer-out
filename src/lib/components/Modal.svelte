@@ -32,33 +32,25 @@
           <div class="sm:flex sm:items-start">
             <div class="w-full mt-3 text-center sm:mt-0 sm:mx-4 sm:text-left dark:text-white">
               <h3 class="text-base leading-6 font-medium text-gray-900 dark:text-white">
-                Simple Sveltekit Template
+                Odd "แ" Out
               </h3>
               <div class="mt-2">
                 <p class="text-sm text-gray-500 dark:text-gray-300">
-                  Build a web app with Sveltekit, quickly.
+                  จากกระแสถกเถียงว่าการเขียนสระ "แ" แบบไหนถึงจะถูก ระหว่าง "เเ" กับ "แ"
+                  เราเลยสร้างเกมง่ายๆ ให้หาสระ "แ" ท่ามกลางสระ "เ" ให้เจอ
                 </p>
               </div>
               <hr class="my-2" />
               <div class="mt-2">
                 <h3 class="text-base font-medium underline">Changelog</h3>
-                <h4 class="text-sm font-medium text-left mt-2">v1.1.0</h4>
-                <div class="flex flex-col mt-1 w-full justify-between text-left">
-                  <p class="text-sm text-gray-500 dark:text-white">Improve Code Redundancy</p>
-                  <div class="text-sm text-gray-500 dark:text-white">
-                    <ul class="list-disc pl-4">
-                      <li>Update Handle Modal Function</li>
-                    </ul>
-                  </div>
-                </div>
                 <h4 class="text-sm font-medium text-left mt-2">v1.0.0</h4>
                 <div class="flex flex-col mt-1 w-full justify-between text-left">
                   <p class="text-sm text-gray-500 dark:text-white">Initial Released ✌🏻</p>
                   <div class="text-sm text-gray-500 dark:text-white">
                     <ul class="list-disc pl-4">
-                      <li>Responsive</li>
-                      <li>Toggleable Dark Mode</li>
-                      <li>Modal Supported</li>
+                      <li>Basic Functionality</li>
+                      <li>Single Player</li>
+                      <li>Auto generated string</li>
                     </ul>
                   </div>
                 </div>
