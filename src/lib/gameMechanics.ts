@@ -17,3 +17,7 @@ export const scoreHandler = (ans: boolean) => {
     score.update((value) => (value - value > 0 ? 1 : 0))
   }
 }
+
+export const resetScore = () => {
+  score.set(0)
+}

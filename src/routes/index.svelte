@@ -2,7 +2,7 @@
   import Canvas from '$lib/components/Canvas.svelte'
   import Countdown from '$lib/components/Countdown.svelte'
   import { score, timer } from '$lib/store'
-  import { randStringGenerator, scoreHandler } from '$lib/gameMechanics'
+  import { randStringGenerator, scoreHandler, resetScore } from '$lib/gameMechanics'
 
   const timerArr = [30, 45, 60]
 
@@ -15,7 +15,7 @@
     txtArr = randStringGenerator(16)
   }
   const handleStart = () => {
-    $score = 0
+    resetScore()
     played = true
     timeup = false
     handleRandom()
@@ -24,13 +24,13 @@
     timeup = true
   }
   const handleRestart = () => {
-    $score = 0
+    resetScore()
     timeup = false
     played = true
     handleRandom()
   }
   const handleReset = () => {
-    $score = 0
+    resetScore()
     timeup = true
     played = false
   }
