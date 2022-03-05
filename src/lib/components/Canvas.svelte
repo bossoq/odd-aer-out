@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import Konva from 'konva'
-  import { darkTheme, score } from '$lib/store'
+  import { aerAns, darkTheme, score } from '$lib/store'
+  import { randStringGenerator } from '$lib/gameMechanics'
   export let txtArr: string[]
 
   let stage: Konva.Stage
@@ -130,9 +131,16 @@
     }
     ;['tap', 'click'].forEach((event) => {
       layer.on(event, (e) => {
-        if (e.target.getAttr('text') === 'แ') {
-          e.target.setAttr('fill', '#ff0000')
-          score.set($score + 1)
+        if (e.target.index === $aerAns) {
+          layer.getChildren()[e.target.index].setAttr('fill', '#00ff00')
+          $score += 1
+        } else {
+          layer.getChildren()[e.target.index].setAttr('fill', '#ff0000')
+          layer.getChildren()[$aerAns].setAttr('fill', '#00ff00')
+          $score -= $score > 0 ? 1 : 0
+          setTimeout(() => {
+            txtArr = randStringGenerator(16)
+          }, 200)
         }
       })
     })
