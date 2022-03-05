@@ -16,6 +16,14 @@
     'bg-teal-200 dark:bg-teal-800 text-slate-600 dark:text-white w-20 px-4 py-2 rounded-2xl text-center'
   let tmpClass = null
   const classTitleConst = 'text-slate-600 dark:text-white w-20 px-4 py-2 rounded-2xl text-center'
+  const classTitle1Switch = [
+    'w-20 px-4 py-2 rounded-2xl text-center',
+    'w-20 px-4 py-2 rounded-2xl text-center'
+  ]
+  const classTitle2Switch = [
+    'w-20 px-4 py-2 rounded-2xl text-center',
+    'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-20 px-4 py-2 rounded-2xl text-center'
+  ]
   const classTitle3Switch = ['bg-amber-200 dark:bg-amber-800', 'bg-teal-200 dark:bg-teal-800']
   const aer = ['เเ', 'แ']
 
@@ -73,9 +81,10 @@
       classTitle3 = classTitle3Switch.shift()
       classTitle3Switch.push(classTitle3)
       classTitle3 += ' ' + classTitleConst
-      tmpClass = classTitle1
-      classTitle1 = classTitle2
-      classTitle2 = tmpClass
+      classTitle1Switch.push(classTitle1)
+      classTitle1 = classTitle1Switch.shift()
+      classTitle2Switch.push(classTitle2)
+      classTitle2 = classTitle2Switch.shift()
     }, 1000)
   }
   const stopTitleChange = () => {
@@ -102,12 +111,12 @@
     class="flex flex-row gap-8 text-6xl text-white dark:text-black bg-teal-800 dark:bg-teal-200 p-4 rounded-2xl font-bold"
   >
     <span class={classTitle1}>O</span>
-    <span class={classTitle2}>D</span>
+    <span class={classTitle1}>D</span>
     <span class={classTitle1}>D</span>
     <span class={classTitle3}>{aerTitle}</span>
-    <span class={classTitle1}>O</span>
+    <span class={classTitle2}>O</span>
     <span class={classTitle2}>U</span>
-    <span class={classTitle1}>T</span>
+    <span class={classTitle2}>T</span>
   </h1>
   <span class="my-4" />
   {#if played}
