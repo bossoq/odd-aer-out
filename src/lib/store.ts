@@ -2,12 +2,10 @@ import { browser } from '$app/env'
 import { writable } from 'svelte/store'
 import type { Writable } from 'svelte/store'
 
-const storage = browser ? JSON.parse(window.localStorage['prefs'] || '{}') || {} : {}
-storage.darkTheme = browser
-  ? window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? true
-    : false
-  : false
+const defaultValue = { darkTheme: true }
+const storage = browser
+  ? JSON.parse(window.localStorage['prefs'] || JSON.stringify(defaultValue)) || defaultValue
+  : defaultValue
 
 const storeSettings = () => {
   if (browser) {
