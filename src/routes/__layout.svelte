@@ -14,7 +14,7 @@
 
   const menuItems = [{ name: 'Made by bossoq', url: 'https://github.com/bossoq/odd-aer-out' }]
   const imageUrl = `${url}/screenshot.jpg`
-  const gtagId = null
+  const gtagId = 'G-93C2NLBGYV'
   const themeIcons = ['🌞 Toggle Light mode', '🌙 Toggle Dark mode']
 </script>
 
