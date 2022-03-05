@@ -6,7 +6,7 @@
   import { score, timer } from '$lib/store'
   import { randStringGenerator, scoreHandler, resetScore } from '$lib/gameMechanics'
 
-  const timerArr = [2, 45, 60]
+  const timerArr = [30, 45, 60]
   let titleInterval = null
   $: aerTitle = 'แ'
   $: classTitle1 =
