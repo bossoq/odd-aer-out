@@ -6,23 +6,23 @@
   import { score, timer } from '$lib/store'
   import { randStringGenerator, scoreHandler, resetScore } from '$lib/gameMechanics'
 
-  const timerArr = [30, 45, 60]
+  const timerArr = [2, 45, 60]
   let titleInterval = null
   $: aerTitle = 'แ'
   $: classTitle1 =
-    'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-20 px-4 py-2 rounded-2xl text-center'
-  $: classTitle2 = 'w-20 px-4 py-2 rounded-2xl text-center'
+    'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-20 h-20 px-4 py-2 rounded-2xl text-center'
+  $: classTitle2 = 'w-20 h-20 px-4 py-2 rounded-2xl text-center'
   $: classTitle3 =
-    'bg-teal-200 dark:bg-teal-800 text-slate-600 dark:text-white w-20 px-4 py-2 rounded-2xl text-center'
-  let tmpClass = null
-  const classTitleConst = 'text-slate-600 dark:text-white w-20 px-4 py-2 rounded-2xl text-center'
+    'bg-teal-200 dark:bg-teal-800 text-slate-600 dark:text-white w-20 h-20 px-4 py-2 rounded-2xl text-center'
+  const classTitleConst =
+    'text-slate-600 dark:text-white w-20 h-20 px-4 py-2 rounded-2xl text-center'
   const classTitle1Switch = [
-    'w-20 px-4 py-2 rounded-2xl text-center',
-    'w-20 px-4 py-2 rounded-2xl text-center'
+    'w-20 h-20 px-4 py-2 rounded-2xl text-center',
+    'w-20 h-20 px-4 py-2 rounded-2xl text-center'
   ]
   const classTitle2Switch = [
-    'w-20 px-4 py-2 rounded-2xl text-center',
-    'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-20 px-4 py-2 rounded-2xl text-center'
+    'w-20 h-20 px-4 py-2 rounded-2xl text-center',
+    'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-20 h-20 px-4 py-2 rounded-2xl text-center'
   ]
   const classTitle3Switch = ['bg-amber-200 dark:bg-amber-800', 'bg-teal-200 dark:bg-teal-800']
   const aer = ['เเ', 'แ']
@@ -106,9 +106,9 @@
   })
 </script>
 
-<div class="w-full h-screen flex flex-col justify-center items-center bg-white dark:bg-black">
+<main class="w-full h-screen flex flex-col items-center bg-white dark:bg-black">
   <h1
-    class="flex flex-row gap-8 text-6xl text-white dark:text-black bg-teal-800 dark:bg-teal-200 p-4 rounded-2xl font-bold"
+    class="relative top-24 flex flex-row gap-8 text-6xl text-white dark:text-black bg-teal-800 dark:bg-teal-200 p-4 rounded-2xl font-bold select-none"
   >
     <span class={classTitle1}>O</span>
     <span class={classTitle1}>D</span>
@@ -120,21 +120,34 @@
   </h1>
   <span class="my-4" />
   {#if played}
-    <div class="flex flex-col justify-center items-center">
+    <div class="relative top-24 flex flex-col justify-center items-center">
       <div
-        class="w-full flex flex-row {timeup
-          ? 'justify-center'
-          : 'justify-between'} items-center mb-6"
+        class="w-full flex {timeup
+          ? 'flex-col justify-center gap-4'
+          : 'flex-row justify-between'} items-center mb-6 select-none"
       >
         {#if !timeup}
           <Countdown on:completed={handleTimeUp} />
+          <div
+            in:fly={{ y: -5 }}
+            class="text-xl sm:text-2xl font-medium text-teal-800 dark:text-teal-200"
+          >
+            <span class="mr-2 uppercase">Score :</span><span>{$score}</span>
+          </div>
+        {:else}
+          <div
+            in:fly={{ y: -5 }}
+            class="text-4xl sm:text-6xl font-medium text-teal-800 dark:text-teal-200"
+          >
+            <span class="uppercase">Time's Up!</span>
+          </div>
+          <div
+            in:fly={{ y: -5 }}
+            class="text-4xl sm:text-6xl font-medium text-teal-800 dark:text-teal-200"
+          >
+            <span class="mr-2 uppercase">Score :</span><span>{$score}</span>
+          </div>
         {/if}
-        <div
-          in:fly={{ y: -5 }}
-          class="text-xl sm:text-2xl font-medium text-teal-800 dark:text-teal-200"
-        >
-          <span class="mr-2">Score :</span><span>{$score}</span>
-        </div>
       </div>
       {#if !timeup}
         <Canvas
@@ -144,35 +157,34 @@
           {txtArr}
         />
       {:else}
-        <div class="flex flex-col justify-center items-center">
-          <div class="flex flex-row gap-4 text-lg sm:text-2xl text-white dark:text-black">
-            <button
-              class="bg-teal-600 dark:bg-teal-300 rounded mt-4 p-3 font-medium"
-              on:click={handleRestart}>เริ่มเกมใหม่</button
-            >
-            <button
-              class="bg-red-600 dark:bg-red-300 rounded mt-4 p-3 font-medium"
-              on:click={handleReset}>ตั้งค่าใหม่</button
-            >
-          </div>
-          <div class="flex flex-row gap-4 text-lg sm:text-2xl text-white dark:text-black">
-            <button
-              class="bg-teal-600 dark:bg-teal-300 rounded mt-4 p-3 font-medium"
-              on:click={handleCopy}
-            >
-              {#if copied}
-                คัดลอกผลแล้ว
-              {:else}
-                คัดลอกผล
-              {/if}
-            </button>
-          </div>
+        <div
+          class="relative w-52 top-2 flex flex-col gap-2 items-center justify-center text-lg sm:text-2xl text-black dark:text-white select-none"
+        >
+          <button
+            class="w-full text-teal-800 dark:text-teal-200 border-4 border-teal-800 dark:border-teal-200 rounded-2xl mt-1 p-4 font-medium uppercase"
+            on:click={handleRestart}>Restart</button
+          >
+          <button
+            class="w-full text-teal-800 dark:text-teal-200 border-4 border-teal-800 dark:border-teal-200 rounded-2xl mt-1 p-4 font-medium uppercase"
+            on:click={handleCopy}
+          >
+            {#if copied}
+              Copied
+            {:else}
+              Copy
+            {/if}
+          </button>
+          <button
+            class="w-full text-teal-800 dark:text-teal-200 border-4 border-teal-800 dark:border-teal-200 rounded-2xl mt-1 p-4 font-medium uppercase"
+            on:click={handleReset}>Main Menu</button
+          >
         </div>
       {/if}
     </div>
   {:else}
     <div
-      class="flex flex-col gap-2 items-center justify-center text-lg sm:text-2xl text-black dark:text-white"
+      class="relative w-52 top-24 flex flex-col gap-2 items-center justify-center text-lg sm:text-2xl text-black dark:text-white select-none"
+      in:fly={{ y: -5 }}
     >
       <button
         class="w-full text-teal-800 dark:text-teal-200 border-4 border-teal-800 dark:border-teal-200 rounded-2xl mt-1 p-4 font-medium uppercase"
@@ -189,4 +201,4 @@
       <!-- <hr class="my-4 border-slate-300 dark:border-slate-600 w-full" /> -->
     </div>
   {/if}
-</div>
+</main>
