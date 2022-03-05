@@ -63,7 +63,9 @@
     played = false
   }
   const handleCopy = () => {
-    navigator.clipboard.writeText(`Odd "แ" Out ${$timer}s ${$score} คะแนน #OddแOut`)
+    navigator.clipboard.writeText(
+      `Odd "แ" Out ${$timer}s ${$score} คะแนน #OddแOut https://odd-aer-out.bossoq.live`
+    )
     copied = true
     setTimeout(() => {
       copied = false
