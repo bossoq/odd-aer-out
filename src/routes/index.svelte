@@ -2,7 +2,7 @@
   import Canvas from '$lib/components/Canvas.svelte'
   import Countdown from '$lib/components/Countdown.svelte'
   import { score, timer } from '$lib/store'
-  import { randStringGenerator } from '$lib/gameMechanics'
+  import { randStringGenerator, scoreHandler } from '$lib/gameMechanics'
 
   const timerArr = [30, 45, 60]
 
@@ -41,12 +41,11 @@
       copied = false
     }, 2000)
   }
-
-  score.subscribe(() => {
+  const handleAnswer = () => {
     setTimeout(() => {
       handleRandom()
     }, 200)
-  })
+  }
 </script>
 
 <div class="w-full h-screen flex flex-col justify-center items-center bg-white dark:bg-black">
@@ -69,7 +68,12 @@
         </div>
       </div>
       {#if !timeup}
-        <Canvas {txtArr} />
+        <Canvas
+          on:answer={handleAnswer}
+          on:true={() => scoreHandler(true)}
+          on:false={() => scoreHandler(false)}
+          {txtArr}
+        />
       {:else}
         <div class="flex flex-col justify-center items-center">
           <div class="flex flex-row gap-4 text-lg sm:text-2xl text-white dark:text-black">

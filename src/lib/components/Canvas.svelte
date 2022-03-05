@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
+  import { createEventDispatcher, onMount } from 'svelte'
   import Konva from 'konva'
   import { aerAns, darkTheme, score } from '$lib/store'
   import { randStringGenerator } from '$lib/gameMechanics'
   export let txtArr: string[]
 
+  const dispatch = createEventDispatcher()
   let stage: Konva.Stage
   let layer: Konva.Layer
   const sceneWidth = 300
@@ -133,15 +134,13 @@
       layer.on(event, (e) => {
         if (e.target.index === $aerAns) {
           layer.getChildren()[e.target.index].setAttr('fill', '#00ff00')
-          $score += 1
+          dispatch('true')
         } else {
           layer.getChildren()[e.target.index].setAttr('fill', '#ff0000')
           layer.getChildren()[$aerAns].setAttr('fill', '#00ff00')
-          $score -= $score > 0 ? 1 : 0
-          setTimeout(() => {
-            txtArr = randStringGenerator(16)
-          }, 200)
+          dispatch('false')
         }
+        dispatch('answer')
       })
     })
 

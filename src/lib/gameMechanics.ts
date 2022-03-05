@@ -1,4 +1,4 @@
-import { aerAns } from '$lib/store'
+import { aerAns, score } from '$lib/store'
 
 export const randStringGenerator = (length: number): string[] => {
   const txtArr: string[] = []
@@ -8,4 +8,12 @@ export const randStringGenerator = (length: number): string[] => {
     txtArr.push(i === aer ? 'แ' : 'เ')
   }
   return txtArr
+}
+
+export const scoreHandler = (ans: boolean) => {
+  if (ans) {
+    score.update((value) => value + 1)
+  } else {
+    score.update((value) => (value - value > 0 ? 1 : 0))
+  }
 }
