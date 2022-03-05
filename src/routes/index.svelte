@@ -4,7 +4,6 @@
   import { score, timer } from '$lib/store'
   import { randStringGenerator } from '$lib/gameMechanics'
 
-  let timerValue = 60
   const timerArr = [30, 45, 60]
 
   $: txtArr = randStringGenerator(16)
@@ -17,30 +16,26 @@
   }
   const handleStart = () => {
     $score = 0
-    $timer = timerValue
     played = true
     timeup = false
     handleRandom()
   }
   const handleTimeUp = () => {
-    $timer = 0
     timeup = true
   }
   const handleRestart = () => {
     $score = 0
-    $timer = timerValue
     timeup = false
     played = true
     handleRandom()
   }
   const handleReset = () => {
     $score = 0
-    $timer = timerValue
     timeup = true
     played = false
   }
   const handleCopy = () => {
-    navigator.clipboard.writeText(`Odd "แ" Out ${timerValue}s ${$score} คะแนน #OddแOut`)
+    navigator.clipboard.writeText(`Odd "แ" Out ${$timer}s ${$score} คะแนน #OddแOut`)
     copied = true
     setTimeout(() => {
       copied = false
@@ -61,15 +56,17 @@
   <span class="my-4" />
   {#if played}
     <div class="flex flex-col justify-center items-center">
-      {#if timeup}
-        <div class="text-2xl sm:text-3xl font-bold mb-2 text-teal-800 dark:text-teal-200">
-          <p>หมดเวลา</p>
-        </div>
-      {:else}
+      <div class="w-full flex flex-row justify-between items-center mb-6">
+        <!-- {#if timeup}
+          <div class="text-2xl sm:text-3xl font-bold mb-2 text-teal-800 dark:text-teal-200">
+            <p>หมดเวลา</p>
+          </div>
+        {:else} -->
         <Countdown on:completed={handleTimeUp} />
-      {/if}
-      <div class="text-2xl sm:text-3xl font-medium text-teal-800 dark:text-teal-200 my-4">
-        <span>{$score}</span><span class="mx-1">คะแนน</span>
+        <!-- {/if} -->
+        <div class="text-xl sm:text-2xl font-medium text-teal-800 dark:text-teal-200">
+          <span class="mr-2">Score :</span><span>{$score}</span>
+        </div>
       </div>
       {#if !timeup}
         <Canvas {txtArr} />
@@ -113,7 +110,7 @@
                 <input
                   class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-400 dark:border-gray-200 bg-white checked:bg-teal-600 checked:border-teal-600 transition duration-200 mt-2 mr-1 cursor-pointer"
                   type="radio"
-                  bind:group={timerValue}
+                  bind:group={$timer}
                   name="timer"
                   value={t}
                 />
