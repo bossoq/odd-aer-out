@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte'
+  import { fly } from 'svelte/transition'
   import Canvas from '$lib/components/Canvas.svelte'
   import Countdown from '$lib/components/Countdown.svelte'
   import { score, timer } from '$lib/store'
@@ -119,7 +120,10 @@
         {#if !timeup}
           <Countdown on:completed={handleTimeUp} />
         {/if}
-        <div class="text-xl sm:text-2xl font-medium text-teal-800 dark:text-teal-200">
+        <div
+          in:fly={{ y: -5 }}
+          class="text-xl sm:text-2xl font-medium text-teal-800 dark:text-teal-200"
+        >
           <span class="mr-2">Score :</span><span>{$score}</span>
         </div>
       </div>
