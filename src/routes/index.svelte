@@ -7,8 +7,8 @@
   const timerArr = [30, 45, 60]
 
   $: txtArr = randStringGenerator(16)
-  $: played = false
-  $: timeup = true
+  $: played = true // todo: change to false
+  $: timeup = false // todo: change to true
   $: copied = false
 
   const handleRandom = () => {
@@ -56,14 +56,14 @@
   <span class="my-4" />
   {#if played}
     <div class="flex flex-col justify-center items-center">
-      <div class="w-full flex flex-row justify-between items-center mb-6">
-        <!-- {#if timeup}
-          <div class="text-2xl sm:text-3xl font-bold mb-2 text-teal-800 dark:text-teal-200">
-            <p>หมดเวลา</p>
-          </div>
-        {:else} -->
-        <Countdown on:completed={handleTimeUp} />
-        <!-- {/if} -->
+      <div
+        class="w-full flex flex-row {timeup
+          ? 'justify-center'
+          : 'justify-between'} items-center mb-6"
+      >
+        {#if !timeup}
+          <Countdown on:completed={handleTimeUp} />
+        {/if}
         <div class="text-xl sm:text-2xl font-medium text-teal-800 dark:text-teal-200">
           <span class="mr-2">Score :</span><span>{$score}</span>
         </div>
