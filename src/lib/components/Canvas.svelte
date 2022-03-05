@@ -133,11 +133,11 @@
     ;['tap', 'click'].forEach((event) => {
       layer.on(event, (e) => {
         if (e.target.index === $aerAns) {
-          layer.getChildren()[e.target.index].setAttr('fill', '#00ff00')
+          layer.getChildren()[e.target.index].setAttr('fill', $darkTheme ? '#99f6e4' : '#115e59')
           dispatch('true')
         } else {
-          layer.getChildren()[e.target.index].setAttr('fill', '#ff0000')
-          layer.getChildren()[$aerAns].setAttr('fill', '#00ff00')
+          layer.getChildren()[e.target.index].setAttr('fill', '#d97706')
+          layer.getChildren()[$aerAns].setAttr('fill', $darkTheme ? '#99f6e4' : '#115e59')
           dispatch('false')
         }
         dispatch('answer')
@@ -151,5 +151,5 @@
 </script>
 
 <div id="canvasParent" class="w-full flex items-center justify-center">
-  <div id="aerPicture" class="border border-red-900 p-2" />
+  <div id="aerPicture" class="border-2 border-teal-800 dark:border-teal-200 rounded-2xl p-2" />
 </div>
