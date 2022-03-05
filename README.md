@@ -116,8 +116,8 @@ See the [open issues](https://github.com/bossoq/odd-aer-out/issues) for a list o
 <!-- To Do -->
 ## To Do
 
-- [ ] Deduct Points on clicking "เ"
-- [ ] Adjust UI for timer and score
+- [x] Deduct Points on clicking "เ"
+- [x] Adjust UI for timer and score
 - [ ] Add Pre Start countdown
 - [ ] Add Modal for how to play
 - [ ] Add Multi Player Mode
