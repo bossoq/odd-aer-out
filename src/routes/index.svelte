@@ -10,19 +10,19 @@
   let titleInterval = null
   $: aerTitle = 'แ'
   $: classTitle1 =
-    'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-20 h-20 px-4 py-2 rounded-2xl text-center'
-  $: classTitle2 = 'w-20 h-20 px-4 py-2 rounded-2xl text-center'
+    'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
+  $: classTitle2 = 'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
   $: classTitle3 =
-    'bg-teal-200 dark:bg-teal-800 text-slate-600 dark:text-white w-20 h-20 px-4 py-2 rounded-2xl text-center'
+    'bg-teal-200 dark:bg-teal-800 text-slate-600 dark:text-white w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
   const classTitleConst =
-    'text-slate-600 dark:text-white w-20 h-20 px-4 py-2 rounded-2xl text-center'
+    'text-slate-600 dark:text-white w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
   const classTitle1Switch = [
-    'w-20 h-20 px-4 py-2 rounded-2xl text-center',
-    'w-20 h-20 px-4 py-2 rounded-2xl text-center'
+    'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center',
+    'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
   ]
   const classTitle2Switch = [
-    'w-20 h-20 px-4 py-2 rounded-2xl text-center',
-    'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-20 h-20 px-4 py-2 rounded-2xl text-center'
+    'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center',
+    'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
   ]
   const classTitle3Switch = ['bg-amber-200 dark:bg-amber-800', 'bg-teal-200 dark:bg-teal-800']
   const aer = ['เเ', 'แ']
@@ -92,8 +92,8 @@
       clearInterval(titleInterval)
     }
     classTitle1 =
-      'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-20 px-4 py-2 rounded-2xl text-center'
-    classTitle2 = 'w-20 px-4 py-2 rounded-2xl text-center'
+      'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
+    classTitle2 = 'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
     classTitle3 = 'bg-teal-200 dark:bg-teal-800 ' + classTitleConst
     aerTitle = 'แ'
   }
@@ -108,7 +108,7 @@
 
 <main class="w-full h-screen flex flex-col items-center bg-white dark:bg-black">
   <h1
-    class="relative top-24 flex flex-row gap-8 text-6xl text-white dark:text-black bg-teal-800 dark:bg-teal-200 p-4 rounded-2xl font-bold select-none"
+    class="relative top-24 flex flex-row gap-1 sm:gap-3 lg:gap-8 text-2xl sm:text-6xl text-white dark:text-black bg-teal-800 dark:bg-teal-200 p-2 sm:p-4 rounded-2xl font-bold select-none"
   >
     <span class={classTitle1}>O</span>
     <span class={classTitle1}>D</span>
@@ -158,7 +158,7 @@
         />
       {:else}
         <div
-          class="relative w-52 top-2 flex flex-col gap-2 items-center justify-center text-lg sm:text-2xl text-black dark:text-white select-none"
+          class="relative w-52 top-12 sm:top-2 flex flex-col gap-4 sm:gap-6 items-center justify-center text-lg sm:text-2xl text-black dark:text-white select-none"
         >
           <button
             class="w-full text-teal-800 dark:text-teal-200 border-4 border-teal-800 dark:border-teal-200 rounded-2xl mt-1 p-4 font-medium uppercase"
@@ -183,7 +183,7 @@
     </div>
   {:else}
     <div
-      class="relative w-52 top-24 flex flex-col gap-2 items-center justify-center text-lg sm:text-2xl text-black dark:text-white select-none"
+      class="relative w-52 top-36 flex flex-col gap-4 sm:gap-6 items-center justify-center text-lg sm:text-2xl text-black dark:text-white select-none"
       in:fly={{ y: -5 }}
     >
       <button
