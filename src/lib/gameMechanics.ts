@@ -14,7 +14,7 @@ export const scoreHandler = (ans: boolean) => {
   if (ans) {
     score.update((value) => value + 1)
   } else {
-    score.update((value) => (value - value > 0 ? 1 : 0))
+    score.update((value) => value - (value > 0 ? 1 : 0))
   }
 }
 
