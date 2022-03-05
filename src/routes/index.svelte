@@ -16,16 +16,16 @@
     'bg-teal-200 dark:bg-teal-800 text-slate-600 dark:text-white w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
   const classTitleConst =
     'text-slate-600 dark:text-white w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
-  const classTitle1Switch = [
+  let classTitle1Switch = [
     'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center',
     'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
   ]
-  const classTitle2Switch = [
+  let classTitle2Switch = [
     'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center',
     'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
   ]
-  const classTitle3Switch = ['bg-amber-200 dark:bg-amber-800', 'bg-teal-200 dark:bg-teal-800']
-  const aer = ['เเ', 'แ']
+  let classTitle3Switch = ['bg-amber-200 dark:bg-amber-800', 'bg-teal-200 dark:bg-teal-800']
+  let aer = ['เเ', 'แ']
 
   $: txtArr = randStringGenerator(16)
   $: played = false
@@ -96,6 +96,16 @@
     classTitle2 = 'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
     classTitle3 = 'bg-teal-200 dark:bg-teal-800 ' + classTitleConst
     aerTitle = 'แ'
+    classTitle1Switch = [
+      'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center',
+      'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
+    ]
+    classTitle2Switch = [
+      'w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center',
+      'bg-white dark:bg-black text-teal-800 dark:text-teal-200 w-12 h-12 sm:w-20 sm:h-20 px-4 py-2 rounded-xl sm:rounded-2xl text-center'
+    ]
+    classTitle3Switch = ['bg-amber-200 dark:bg-amber-800', 'bg-teal-200 dark:bg-teal-800']
+    aer = ['เเ', 'แ']
   }
 
   onMount(() => {
