@@ -1,8 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from 'svelte'
+  import { fly } from 'svelte/transition'
   import Konva from 'konva'
   import { aerAns, darkTheme, score } from '$lib/store'
-  import { randStringGenerator } from '$lib/gameMechanics'
   export let txtArr: string[]
 
   const dispatch = createEventDispatcher()
@@ -150,6 +150,6 @@
   $: renderText?.(txtArr)
 </script>
 
-<div id="canvasParent" class="w-full flex items-center justify-center">
+<div in:fly={{ y: -5 }} id="canvasParent" class="w-full flex items-center justify-center">
   <div id="aerPicture" class="border-2 border-teal-800 dark:border-teal-200 rounded-2xl p-2" />
 </div>
