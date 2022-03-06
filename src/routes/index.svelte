@@ -170,7 +170,7 @@
         />
       {:else}
         <div
-          class="relative w-52 top-12 sm:top-2 flex flex-col gap-4 sm:gap-6 items-center justify-center text-lg sm:text-2xl text-black dark:text-white select-none"
+          class="relative w-60 top-12 sm:top-2 flex flex-col gap-4 sm:gap-6 items-center justify-center text-lg sm:text-2xl text-black dark:text-white select-none"
         >
           <button
             class="w-full text-teal-800 dark:text-teal-200 border-4 border-teal-800 dark:border-teal-200 rounded-2xl mt-1 p-4 font-medium uppercase"
@@ -195,7 +195,7 @@
     </div>
   {:else}
     <div
-      class="relative w-52 top-36 flex flex-col gap-4 sm:gap-6 items-center justify-center text-lg sm:text-2xl text-black dark:text-white select-none"
+      class="relative w-60 top-36 flex flex-col gap-4 sm:gap-6 items-center justify-center text-lg sm:text-2xl text-black dark:text-white select-none"
       in:fly={{ y: -5 }}
     >
       <button
@@ -210,7 +210,12 @@
       >
         Timer: {$timer}s
       </button>
-      <!-- <hr class="my-4 border-slate-300 dark:border-slate-600 w-full" /> -->
+      <hr class="mt-1 border-slate-300 dark:border-slate-600 w-full" />
+      <button
+        class="w-full text-teal-800 dark:text-teal-200 border-4 border-teal-800 dark:border-teal-200 rounded-2xl mt-1 p-4 font-medium uppercase"
+      >
+        Coming Soon
+      </button>
     </div>
   {/if}
 </main>
