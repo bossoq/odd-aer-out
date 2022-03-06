@@ -2,9 +2,11 @@
   import { createEventDispatcher, onMount } from 'svelte'
   import { fly } from 'svelte/transition'
   import Konva from 'konva'
-  import { aerAns, darkTheme, score } from '$lib/store'
+  import { aerAns, darkTheme } from '$lib/store'
   export let txtArr: string[]
   export let idx: number
+  export let highlightAns = null
+  export let highlightWrong = null
 
   const dispatch = createEventDispatcher()
   let stage: Konva.Stage
@@ -128,7 +130,16 @@
         layer.getChildren()[idx].setAttrs({
           text: txtArr[idx],
           x: 15 * idx + 22 + (idx > 0 ? (aerPadding ? 14 : 0) : 0),
-          fill: $darkTheme ? '#fff' : '#000'
+          fill:
+            highlightWrong === idx
+              ? '#d97706'
+              : highlightAns === idx
+              ? $darkTheme
+                ? '#99f6e4'
+                : '#115e59'
+              : $darkTheme
+              ? '#fff'
+              : '#000'
         })
       }
       layer.batchDraw()
