@@ -6,7 +6,8 @@
   import Social from '$lib/components/Social.svelte'
   import ThemeSelector from '$lib/components/ThemeSelector.svelte'
   import Modal from '$lib/components/Modal.svelte'
-  import { darkTheme, modalViewed } from '$lib/store'
+  import HowToPlay from '$lib/components/HowToPlay.svelte'
+  import { darkTheme, howtoModalViewed, modalViewed } from '$lib/store'
 
   const url = 'https://odd-aer-out.bossoq.live'
   const title = 'Odd "แ" Out'
@@ -26,6 +27,9 @@
   <Menu items={menuItems} />
   {#if $modalViewed}
     <Modal />
+  {/if}
+  {#if $howtoModalViewed}
+    <HowToPlay />
   {/if}
   <slot />
 </main>

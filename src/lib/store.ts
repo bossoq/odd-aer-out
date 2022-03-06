@@ -15,6 +15,7 @@ const storeSettings = () => {
 
 export const darkTheme: Writable<boolean> = writable(storage.darkTheme ?? false)
 export const modalViewed: Writable<boolean> = writable(false)
+export const howtoModalViewed: Writable<boolean> = writable(true)
 export const score: Writable<number> = writable(0)
 export const timer: Writable<number> = writable(60)
 export const aerAns: Writable<number> = writable(99)

@@ -3,7 +3,8 @@
   import { fly } from 'svelte/transition'
   import Canvas from '$lib/components/Canvas.svelte'
   import Countdown from '$lib/components/Countdown.svelte'
-  import { score, timer } from '$lib/store'
+  import { score, timer, howtoModalViewed } from '$lib/store'
+  import { handleHowToClass } from '$lib/handleModal'
   import { randStringGenerator, scoreHandler, resetScore } from '$lib/gameMechanics'
 
   const timerArr = [30, 45, 60]
@@ -214,6 +215,7 @@
       <hr class="mt-1 border-slate-300 dark:border-slate-600 w-full" />
       <button
         class="w-full text-teal-800 dark:text-teal-200 border-4 border-teal-800 dark:border-teal-200 rounded-2xl mt-1 p-4 font-medium uppercase"
+        on:click={(e) => handleHowToClass(e, $howtoModalViewed)}
       >
         How To Play
       </button>
