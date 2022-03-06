@@ -43,6 +43,17 @@
               <hr class="my-2" />
               <div class="mt-2">
                 <h3 class="text-base font-medium underline">Changelog</h3>
+                <h4 class="text-sm font-medium text-left mt-2">v1.1.1</h4>
+                <div class="flex flex-col mt-1 w-full justify-between text-left">
+                  <p class="text-sm text-gray-500 dark:text-gray-300">Bugs Fixed 💪🏻</p>
+                  <div class="text-sm text-gray-500 dark:text-gray-300">
+                    <ul class="list-disc pl-4">
+                      <li>Fix Rendering Bugs (Text collapse in Canvas)</li>
+                      <li>Add How To Play</li>
+                      <li>Add Coming Soon Placeholder for new Mode!</li>
+                    </ul>
+                  </div>
+                </div>
                 <h4 class="text-sm font-medium text-left mt-2">v1.1.0</h4>
                 <div class="flex flex-col mt-1 w-full justify-between text-left">
                   <p class="text-sm text-gray-500 dark:text-gray-300">New UI 👏🏻</p>
