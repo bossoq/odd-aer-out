@@ -4,6 +4,7 @@
   import Konva from 'konva'
   import { aerAns, darkTheme, score } from '$lib/store'
   export let txtArr: string[]
+  export let idx: number
 
   const dispatch = createEventDispatcher()
   let stage: Konva.Stage
@@ -14,7 +15,7 @@
 
   onMount(() => {
     stage = new Konva.Stage({
-      container: 'aerPicture',
+      container: `aerPicture${idx}`,
       width: sceneWidth,
       height: sceneHeight
     })
@@ -121,10 +122,12 @@
     })
 
     renderText = (txtArr: string[]) => {
+      let aerPadding = false
       for (let idx = 0; idx < 16; idx++) {
+        aerPadding = idx > 0 ? (txtArr[idx - 1] === 'แ' || aerPadding) && true : false
         layer.getChildren()[idx].setAttrs({
           text: txtArr[idx],
-          x: 15 * idx + 28 + (idx > 0 ? (txtArr[idx - 1] === 'แ' ? 14 : 0) : 0),
+          x: 15 * idx + 22 + (idx > 0 ? (aerPadding ? 14 : 0) : 0),
           fill: $darkTheme ? '#fff' : '#000'
         })
       }
@@ -151,5 +154,5 @@
 </script>
 
 <div in:fly={{ y: -5 }} id="canvasParent" class="w-full flex items-center justify-center">
-  <div id="aerPicture" class="border-2 border-teal-800 dark:border-teal-200 rounded-2xl p-2" />
+  <div id="aerPicture{idx}" class="border-2 border-teal-800 dark:border-teal-200 rounded-2xl p-2" />
 </div>

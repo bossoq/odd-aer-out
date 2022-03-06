@@ -167,6 +167,7 @@
           on:true={() => scoreHandler(true)}
           on:false={() => scoreHandler(false)}
           {txtArr}
+          idx={0}
         />
       {:else}
         <div
