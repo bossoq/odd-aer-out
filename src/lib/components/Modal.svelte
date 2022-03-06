@@ -45,8 +45,8 @@
                 <h3 class="text-base font-medium underline">Changelog</h3>
                 <h4 class="text-sm font-medium text-left mt-2">v1.1.0</h4>
                 <div class="flex flex-col mt-1 w-full justify-between text-left">
-                  <p class="text-sm text-gray-500 dark:text-white">New UI 👏🏻</p>
-                  <div class="text-sm text-gray-500 dark:text-white">
+                  <p class="text-sm text-gray-500 dark:text-gray-300">New UI 👏🏻</p>
+                  <div class="text-sm text-gray-500 dark:text-gray-300">
                     <ul class="list-disc pl-4">
                       <li>New UI 300%</li>
                       <li>New Rules: Deduct Point on Incorrect Answer</li>
@@ -55,8 +55,8 @@
                 </div>
                 <h4 class="text-sm font-medium text-left mt-2">v1.0.0</h4>
                 <div class="flex flex-col mt-1 w-full justify-between text-left">
-                  <p class="text-sm text-gray-500 dark:text-white">Initial Released ✌🏻</p>
-                  <div class="text-sm text-gray-500 dark:text-white">
+                  <p class="text-sm text-gray-500 dark:text-gray-300">Initial Released ✌🏻</p>
+                  <div class="text-sm text-gray-500 dark:text-gray-300">
                     <ul class="list-disc pl-4">
                       <li>Basic Functionality</li>
                       <li>Single Player</li>
