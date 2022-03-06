@@ -215,6 +215,11 @@
       <button
         class="w-full text-teal-800 dark:text-teal-200 border-4 border-teal-800 dark:border-teal-200 rounded-2xl mt-1 p-4 font-medium uppercase"
       >
+        How To Play
+      </button>
+      <button
+        class="w-full text-teal-800 dark:text-teal-200 border-4 border-teal-800 dark:border-teal-200 rounded-2xl mt-1 p-4 font-medium uppercase"
+      >
         Coming Soon
       </button>
     </div>
