@@ -7,7 +7,7 @@
   import { handleHowToClass } from '$lib/handleModal'
   import { randStringGenerator, scoreHandler, resetScore } from '$lib/gameMechanics'
 
-  const timerArr = [30, 45, 60]
+  const timerArr = [30, 45, 60, 1800]
   let titleInterval = null
   $: aerTitle = 'แ'
   $: classTitle1 =
